@@ -16,10 +16,11 @@ package CeresLogger
 
 var (
 	DefaultLogger = Config{
-		Stdout:     true,
-		AddCaller:  true,
-		CallerSkip: 2,
-		Rotate:     NewDefaultRotateConfig(),
+		Stdout:       true,
+		AddCaller:    true,
+		CallerSkip:   2,
+		Rotate:       false,
+		RotateConfig: NewDefaultRotateConfig(),
 	}.Build()
 	FrameLogger = Config{
 		Debug:      true,
@@ -30,7 +31,6 @@ var (
 )
 
 type Logger interface {
-	AutoLevel(key string)
 	SetLevel(level Level)
 	AddCallerSkip(i int) Logger
 	With(...Field) Logger

@@ -15,11 +15,9 @@
 package CeresLogger
 
 import (
-	"github.com/go-ceres/go-ceres/config"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 	"os"
-	"strings"
 )
 
 type (
@@ -79,8 +77,8 @@ func newLogger(c *Config) *logger {
 	if c.Stdout {
 		ws["stdout"] = os.Stdout
 	}
-	if c.Rotate != nil {
-		ws["rotate"] = zapcore.AddSync(c.Rotate.Build())
+	if c.Rotate {
+		ws["rotate"] = zapcore.AddSync(c.RotateConfig.Build())
 	}
 	var lv zap.AtomicLevel
 	if c.Debug {
@@ -128,20 +126,6 @@ func newLogger(c *Config) *logger {
 		config:        *c,
 		sugaredLogger: zapLogger.Sugar(),
 	}
-}
-
-// 检测配置文件变化重新设置等级
-func (l *logger) AutoLevel(key string) {
-	config.OnChange(func(v config.Values) {
-		lvText := strings.ToLower(v.Get(key).String(""))
-		if lvText != "" {
-			l.Info("update level", String("level", lvText))
-			if err := l.lv.UnmarshalText([]byte(lvText)); err != nil {
-				l.Error("UnmarshalText error: " + err.Error())
-			}
-		}
-	})
-	l.sugaredLogger.Debug()
 }
 
 // 主动设置等级
