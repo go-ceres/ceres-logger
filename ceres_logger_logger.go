@@ -15,9 +15,11 @@
 package CeresLogger
 
 import (
+	CeresConfig "github.com/go-ceres/ceres-config"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 	"os"
+	"strings"
 )
 
 type (
@@ -126,6 +128,19 @@ func newLogger(c *Config) *logger {
 		config:        *c,
 		sugaredLogger: zapLogger.Sugar(),
 	}
+}
+
+func (l *logger) AutoLevel(key string) {
+	CeresConfig.OnChange(func(v CeresConfig.Values) {
+		lvText := strings.ToLower(v.Get(key).String(""))
+		if lvText != "" {
+			l.Info("update level", String("level", lvText))
+			if err := l.lv.UnmarshalText([]byte(lvText)); err != nil {
+				l.Error("UnmarshalText error: " + err.Error())
+			}
+		}
+	})
+	l.sugaredLogger.Debug()
 }
 
 // 主动设置等级

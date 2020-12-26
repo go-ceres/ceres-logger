@@ -15,6 +15,7 @@
 package CeresLogger
 
 import (
+	CeresConfig "github.com/go-ceres/ceres-config"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 )
@@ -33,14 +34,31 @@ type Config struct {
 }
 
 // 获取一个默认的配置
-func DefaultConfig() Config {
-	return Config{
+func defaultConfig() *Config {
+	return &Config{
 		Stdout: true,
 	}
+}
+
+// RawConfig 根据key构建配置
+func RawConfig(key string) *Config {
+	conf := defaultConfig()
+	if err := CeresConfig.Get(key).Scan(conf); err != nil {
+		panic(err)
+	}
+	return conf
+}
+
+// SanConfig 根据name构建配置
+func SanConfig(name string) *Config {
+	return RawConfig("ceres.logger." + name)
 }
 
 // 创建logger
 func (c Config) Build() Logger {
 	logger := newLogger(&c)
+	if c.autoLevelKey != "" {
+		logger.AutoLevel(c.autoLevelKey)
+	}
 	return logger
 }

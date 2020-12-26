@@ -36,22 +36,22 @@ func Panic(args ...interface{}) {
 
 // Sugar f
 func Debugf(template string, args ...interface{}) {
-	DefaultLogger.Debugf(template, args)
+	DefaultLogger.Debugf(template, args...)
 }
 func Infof(template string, args ...interface{}) {
-	DefaultLogger.Infof(template, args)
+	DefaultLogger.Infof(template, args...)
 }
 func Warnf(template string, args ...interface{}) {
-	DefaultLogger.Warnf(template, args)
+	DefaultLogger.Warnf(template, args...)
 }
 func Errorf(template string, args ...interface{}) {
-	DefaultLogger.Errorf(template, args)
+	DefaultLogger.Errorf(template, args...)
 }
 func DPanicf(template string, args ...interface{}) {
-	DefaultLogger.DPanicf(template, args)
+	DefaultLogger.DPanicf(template, args...)
 }
 func Panicf(template string, args ...interface{}) {
-	DefaultLogger.Panicf(template, args)
+	DefaultLogger.Panicf(template, args...)
 }
 
 // Sugar w

@@ -52,6 +52,11 @@ func FieldErr(err error) zap.Field {
 	return zap.Any("err", err)
 }
 
+// 错误发生相关的值
+func FieldValue(value interface{}) zap.Field {
+	return zap.Any("value", value)
+}
+
 // 二级封装zap.string
 func FieldString(key, val string) zap.Field {
 	return zap.String(key, val)
