@@ -191,22 +191,22 @@ func (l *logger) Panic(args ...interface{}) {
 
 // Sugar f
 func (l *logger) Debugf(template string, args ...interface{}) {
-	l.sugaredLogger.Debugf(template, args)
+	l.sugaredLogger.Debugf(template, args...)
 }
 func (l *logger) Infof(template string, args ...interface{}) {
-	l.sugaredLogger.Infof(template, args)
+	l.sugaredLogger.Infof(template, args...)
 }
 func (l *logger) Warnf(template string, args ...interface{}) {
-	l.sugaredLogger.Warnf(template, args)
+	l.sugaredLogger.Warnf(template, args...)
 }
 func (l *logger) Errorf(template string, args ...interface{}) {
-	l.sugaredLogger.Errorf(template, args)
+	l.sugaredLogger.Errorf(template, args...)
 }
 func (l *logger) DPanicf(template string, args ...interface{}) {
-	l.sugaredLogger.DPanicf(template, args)
+	l.sugaredLogger.DPanicf(template, args...)
 }
 func (l *logger) Panicf(template string, args ...interface{}) {
-	l.sugaredLogger.Panicf(template, args)
+	l.sugaredLogger.Panicf(template, args...)
 }
 
 // Sugar w

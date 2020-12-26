@@ -11,6 +11,8 @@ github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSs
 github.com/fatih/color v1.9.0/go.mod h1:eQcE1qtQxscV5RaZvpXrrb8Drkc3/DdQ+uUYCNjL+zU=
 github.com/fatih/color v1.10.0 h1:s36xzo75JdqLaaWoiEHk767eHiwo0598uUxyfiPkDsg=
 github.com/fatih/color v1.10.0/go.mod h1:ELkj/draVOlAH/xkhN6mQ50Qd0MPOk5AAr3maGEBuJM=
+github.com/go-ceres/ceres-config v1.0.0-beta.2 h1:yD14LNWkofm+m3Em7GwgB6qVrFtNwRqWg4smuetUqtk=
+github.com/go-ceres/ceres-config v1.0.0-beta.2/go.mod h1:q+s6gJHd2QjBDGZ9bQ2hE5njziHUjpa0lKmKc3KVTDY=
 github.com/go-ceres/cli/v2 v2.2.2/go.mod h1:rPaMrvbX1szi4EM1X5g7Ps3yroMx0TZ3zGzGZ4id+zM=
 github.com/go-ceres/go-ceres v0.0.0-20201106061359-c7a2fa0b8c5a h1:G1lPjh4s15cl/i4uMvE+MGyQFkErhGDlVL2gmfo2/uY=
 github.com/go-ceres/go-ceres v0.0.0-20201106061359-c7a2fa0b8c5a/go.mod h1:kdulil7/+zQ/eLgHPPsZeBmdKlNCLLo+i4lXODE8JfM=
@@ -18,6 +20,7 @@ github.com/google/renameio v0.1.0/go.mod h1:KWCgfxg9yswjAJkECMjeO8J8rahYeXnNhOm4
 github.com/kisielk/gotool v1.0.0/go.mod h1:XhKaO+MFFWcvkIS/tQcRk01m1F5IRFswLeQ+oQHNcck=
 github.com/kr/pretty v0.1.0 h1:L/CwN0zerZDmRFUapSPitk6f+Q3+0za1rQkzVuMiMFI=
 github.com/kr/pretty v0.1.0/go.mod h1:dAy3ld7l9f0ibDNOQOHHMYYIIbhfbHSm3C4ZsoJORNo=
+github.com/kr/pretty v0.2.1/go.mod h1:ipq/a2n7PKx3OHsz4KJII5eveXtPO4qwEXGdVfWzfnI=
 github.com/kr/pty v1.1.1/go.mod h1:pFQYn66WHrOpPYNljwOMqo10TkYh1fy3cYio2l3bCsQ=
 github.com/kr/text v0.1.0 h1:45sCR5RtlFHMR4UwH9sdQ5TC8v0qDQCHnXt+kaKSTVE=
 github.com/kr/text v0.1.0/go.mod h1:4Jbv+DJW3UT/LiOwJeYQe1efqtUx/iVham/4vfdArNI=
