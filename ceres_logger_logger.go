@@ -83,15 +83,17 @@ func newLogger(c *Config) *logger {
 		ws["rotate"] = zapcore.AddSync(c.RotateConfig.Build())
 	}
 	var lv zap.AtomicLevel
-	if c.Debug {
-		lv = zap.NewAtomicLevelAt(zapcore.DebugLevel)
-	} else {
-		lv = zap.NewAtomicLevelAt(zapcore.InfoLevel)
-	}
+	// 如果日志等级不为空
 	if c.Level != "" {
 		if err := lv.UnmarshalText([]byte(c.Level)); err != nil {
 			panic(err)
 		}
+	}
+	// 如果开启了debug模式
+	if c.Debug {
+		lv = zap.NewAtomicLevelAt(zapcore.DebugLevel)
+	} else {
+		lv = zap.NewAtomicLevelAt(zapcore.InfoLevel)
 	}
 	core := c.Core
 	if core == nil {
