@@ -12,6 +12,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 package CeresLogger
 
 import (
@@ -386,9 +387,7 @@ func ctime(file *os.File) (time.Time, error) {
 	if err != nil {
 		return time.Now(), err
 	}
-
-	stat := fi.Sys().(*syscall.Stat_t)
-	return time.Unix(int64(stat.Ctimespec.Sec), int64(stat.Ctimespec.Nsec)), nil
+	return time.Unix(0, fi.Sys().(*syscall.Win32FileAttributeData).CreationTime.Nanoseconds()), nil
 }
 
 // backupName 获取日志切割名称，即是备份名
