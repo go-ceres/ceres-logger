@@ -39,6 +39,7 @@ func defaultConfig() *Config {
 		Stdout:       true,
 		Level:        "info",
 		Rotate:       false,
+		AddCaller:    true,
 		CallerSkip:   2,
 		RotateConfig: NewDefaultRotateConfig(),
 	}
