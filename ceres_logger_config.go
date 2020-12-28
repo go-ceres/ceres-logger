@@ -21,22 +21,26 @@ import (
 )
 
 type Config struct {
-	Debug        bool          // 是否开启debug模式，默认false
-	Level        string        // 日志等级
-	Stdout       bool          // 是否在控制台打印，默认，true
-	Rotate       bool          // 是否文件日志输出
-	RotateConfig *RotateConfig // 日志输出配置文件
-	Fields       []zap.Field   // 初始化字段
-	AddCaller    bool          // 是否打印调用者信息，默认，true
-	CallerSkip   int           // 表示输出当前栈帧，默认，1
-	autoLevelKey string        // 日志等级监听key
-	Core         zapcore.Core
+	Debug         bool        // 是否开启debug模式，默认false
+	Level         string      // 日志等级
+	Stdout        bool        // 是否在控制台打印，默认，true
+	Rotate        bool        // 是否文件日志输出
+	Fields        []zap.Field // 初始化字段
+	AddCaller     bool        // 是否打印调用者信息，默认，true
+	CallerSkip    int         // 表示输出当前栈帧，默认，1
+	autoLevelKey  string      // 日志等级监听key
+	Core          zapcore.Core
+	*RotateConfig // 文件日志输出配置
 }
 
 // 获取一个默认的配置
 func defaultConfig() *Config {
 	return &Config{
-		Stdout: true,
+		Stdout:       true,
+		Level:        "info",
+		Rotate:       false,
+		CallerSkip:   2,
+		RotateConfig: NewDefaultRotateConfig(),
 	}
 }
 
