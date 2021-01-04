@@ -17,6 +17,7 @@ package CeresLogger
 var (
 	DefaultLogger = Config{
 		Stdout:       true,
+		Debug:        true,
 		AddCaller:    true,
 		CallerSkip:   2,
 		Rotate:       false,
