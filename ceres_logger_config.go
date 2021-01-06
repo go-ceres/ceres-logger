@@ -54,8 +54,8 @@ func RawConfig(key string) *Config {
 	return conf
 }
 
-// SanConfig 根据name构建配置
-func SanConfig(name string) *Config {
+// ScanConfig 根据name构建配置
+func ScanConfig(name string) *Config {
 	return RawConfig("ceres.logger." + name)
 }
 

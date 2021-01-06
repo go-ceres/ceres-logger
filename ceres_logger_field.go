@@ -22,8 +22,8 @@ func FieldAid(aid string) zap.Field {
 	return zap.String("aid", aid)
 }
 
-// 日志发生的包名
-func FieldPkg(pkg string) zap.Field {
+// 日志发生的模块
+func FieldMod(pkg string) zap.Field {
 	return zap.String("pkg", pkg)
 }
 
