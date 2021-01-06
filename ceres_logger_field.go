@@ -23,8 +23,8 @@ func FieldAid(aid string) zap.Field {
 }
 
 // 日志发生的模块
-func FieldMod(pkg string) zap.Field {
-	return zap.String("pkg", pkg)
+func FieldMod(mod string) zap.Field {
+	return zap.String("mod", mod)
 }
 
 // 日志发生的链路追踪id
